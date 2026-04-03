@@ -77,9 +77,8 @@
     .scroll-reveal { opacity: 0; transform: translateY(60px) scale(0.92); transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0) scale(1); }
     .scroll-reveal:nth-child(2) { transition-delay: 0.1s; } .scroll-reveal:nth-child(3) { transition-delay: 0.2s; } .scroll-reveal:nth-child(4) { transition-delay: 0.15s; } .scroll-reveal:nth-child(5) { transition-delay: 0.25s; } .scroll-reveal:nth-child(6) { transition-delay: 0.3s; } .scroll-reveal:last-child { transition-delay: 0.1s; }
-
-    .team-card { position: relative; border-radius: 1.5rem; overflow: hidden; background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s cubic-bezier(0.23,1,0.32,1); }
-    .team-card:hover { border-color: rgba(137, 170, 204, 0.5); box-shadow: 0 30px 80px -20px rgba(137, 170, 204, 0.25), 0 0 40px -10px rgba(137, 170, 204, 0.15), inset 0 1px 0 rgba(137, 170, 204, 0.15); }
+    .team-card { position: relative; border-radius: 1.5rem; overflow: hidden; background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s cubic-bezier(0.23,1,0.32,1), transform 0.6s cubic-bezier(0.23,1,0.32,1); }
+    .team-card:hover { border-color: rgba(137, 170, 204, 0.5); box-shadow: 0 30px 80px -20px rgba(137, 170, 204, 0.25), 0 0 40px -10px rgba(137, 170, 204, 0.15), inset 0 1px 0 rgba(137, 170, 204, 0.15); transform: translateY(-6px) scale(1.02); }
     .team-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(137,170,204,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; z-index: 1; }
     .team-card:hover::before { opacity: 1; }
     .team-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 40%, rgba(137,170,204,0.04) 100%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; z-index: 1; }
@@ -307,7 +306,7 @@
       const words = ['Pixel', 'Egg', 'Create', 'Inspire', 'Design', 'Develop']; let wi = 0;
       const wInt = setInterval(() => { wi = (wi + 1) % words.length; gsap.to(lw, { opacity: 0, y: -20, duration: 0.3, onComplete: () => { lw.textContent = words[wi]; gsap.fromTo(lw, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }); }}); }, 800);
       const dur = 2700, st = Date.now();
-      (function a() { const p = Math.min((Date.now() - st) / dur, 1); lc.textContent = String(Math.floor(p * 100)).padStart(3, '0'); lb.style.transform = `scaleX(${p})`; if (p < 1) requestAnimationFrame(a); else { clearInterval(wInt); setTimeout(() => { gsap.to(ls, { yPercent: -100, duration: 0.8, ease: 'power4.inOut', onComplete: () => { ls.style.display = 'none'; mc.style.opacity = '1'; if (!isMobile) ScrollTrigger.refresh(); initAnimations(); }}); gsap.to(lw, { scale: 1.5, opacity: 0, duration: 0.4 }); gsap.to(lc, { y: -50, opacity: 0, duration: 0.3 }); }, 300); } }); }
+      (function a() { const p = Math.min((Date.now() - st) / dur, 1); lc.textContent = String(Math.floor(p * 100)).padStart(3, '0'); lb.style.transform = `scaleX(${p})`; if (p < 1) requestAnimationFrame(a); else { clearInterval(wInt); setTimeout(() => { gsap.to(ls, { yPercent: -100, duration: 0.8, ease: 'power4.inOut', onComplete: () => { ls.style.display = 'none'; mc.style.opacity = '1'; if (!isMobile) ScrollTrigger.refresh(); initAnimations(); }}); gsap.to(lw, { scale: 1.5, opacity: 0, duration: 0.4 }); gsap.to(lc, { y: -50, opacity: 0, duration: 0.3 }); }, 300); } })();
     })();
     if (!isMobile) { const roles = ['Creative', 'Strategic', 'Bold', 'Precision']; let ri = 0; const re = document.getElementById('role-rotator'); if (re) setInterval(() => { ri = (ri + 1) % roles.length; gsap.to(re, { y: -20, opacity: 0, duration: 0.2, onComplete: () => { re.textContent = roles[ri]; gsap.fromTo(re, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }); }}); }, 2000); }
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.5 }); else el.scrollIntoView({ behavior: 'smooth' }); } }
@@ -327,15 +326,20 @@
       gsap.to('.portfolio-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#portfolio', start: 'top 75%' } });
       gsap.to('.portfolio-line', { scaleX: 1, duration: 0.8, scrollTrigger: { trigger: '#portfolio', start: 'top 70%' } });
       gsap.to('.portfolio-filters', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#portfolio', start: 'top 65%' } });
+
+      // === GALLERY: anchor track to left edge, start at first card === FIX ===
       const gt = document.getElementById('gallery-track'), gc = document.getElementById('gallery-container'), pg = document.getElementById('portfolio-gallery');
       if (gt && gc && pg) {
+        // Force track to start at container's left edge (overrides any browser flex-centering)
         gt.style.left = '0px';
+        // Calculate offset to center first card in viewport
         function calcStartOffset() { return Math.max(0, (window.innerWidth - window.innerWidth * 0.7) / 2 - 24); }
         let galleryStart = calcStartOffset();
         gsap.set(gt, { x: galleryStart });
         const gd = () => gt.scrollWidth - window.innerWidth + galleryStart + 50;
         ScrollTrigger.create({ trigger: pg, start: 'top top', end: () => `+=${gd()}`, pin: gc, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: (s) => { gsap.set(gt, { x: galleryStart - gd() * s.progress }); } });
       }
+
       gsap.fromTo('.kinetic-line', { x: '70%' }, { x: '-70%', ease: 'none', scrollTrigger: { trigger: '.kinetic-section', start: 'top 95%', end: 'bottom 5%', scrub: 1 } });
       gsap.fromTo('.kinetic-line-reverse', { x: '-70%' }, { x: '70%', ease: 'none', scrollTrigger: { trigger: '.kinetic-section', start: 'top 95%', end: 'bottom 5%', scrub: 1 } });
       gsap.to('.about-label', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#about', start: 'top 80%' } });
@@ -356,10 +360,7 @@
       teamCards.forEach((card, i) => { const from = entrances[i]; const tl = gsap.timeline(); tl.fromTo(card, {...from,opacity:0,transformOrigin:i<2?'center center':'bottom center'},{x:0,y:0,rotate:0,rotateX:0,rotateY:0,rotateZ:0,scale:1,opacity:1,duration:1.2,ease:'power3.out'}); tl.fromTo(card.querySelector('.team-card-initial'),{scale:0,rotation:-45,opacity:0},{scale:1,rotation:0,opacity:1,duration:1.1,ease:'back.out(1.8)'},'-=0.7'); card.querySelectorAll('.team-card-corner,.team-card-corner-br').forEach(c=>{tl.fromTo(c,{scaleX:0,scaleY:0,opacity:0},{scaleX:1,scaleY:1,opacity:1,duration:0.5,ease:'power2.out'},'-=0.6');}); tl.fromTo(card.querySelector('.team-card-num'),{y:-12,opacity:0,letterSpacing:'0.4em'},{y:0,opacity:1,letterSpacing:'0.2em',duration:0.5},'-=0.35'); tl.fromTo(card.querySelector('.team-card-role'),{y:12,opacity:0},{y:0,opacity:1,duration:0.4},'-=0.3'); tl.fromTo(card.querySelector('.team-card-name'),{y:25,opacity:0,clipPath:'inset(0 0 100% 0)'},{y:0,opacity:1,clipPath:'inset(0 0 0% 0)',duration:0.7,ease:'power3.out'},'-=0.25'); tl.fromTo(card.querySelector('.team-card-line-el'),{width:0},{width:'80px',duration:0.7,ease:'power2.inOut'},'-=0.3'); tl.call(()=>card.classList.add('active'),null,'-=0.1'); tl.fromTo(card.querySelector('.team-card-desc'),{y:12,opacity:0},{y:0,opacity:1,duration:0.4},'-=0.25'); card.querySelectorAll('.team-card-tags span').forEach(tag=>{tl.fromTo(tag,{y:8,opacity:0,scale:0.7},{y:0,opacity:1,scale:1,duration:0.35,ease:'back.out(2.5)'},'-=0.18');}); masterTL.add(tl,i*0.3); });
       gsap.utils.toArray('.team-card-initial').forEach((init,i)=>{gsap.to(init,{y:-30+(i*12),x:(i%2===0?-15:15),ease:'none',scrollTrigger:{trigger:'.team-grid',start:'top 80%',end:'bottom 20%',scrub:2}});});
       gsap.fromTo('.team-bottom-tag',{opacity:0,y:50},{opacity:1,y:0,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.team-bottom-tag',start:'top 88%'}});
-      teamCards.forEach(card=>{
-        card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;gsap.to(card,{rotateY:x*8,rotateX:-y*8,y:-6,scale:1.02,duration:0.4,ease:'power2.out',transformPerspective:800});});
-        card.addEventListener('mouseleave',()=>{gsap.to(card,{rotateY:0,rotateX:0,y:0,scale:1,duration:0.7,ease:'elastic.out(1,0.4)'});});
-      });
+      teamCards.forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;gsap.to(card,{rotateY:x*8,rotateX:-y*8,duration:0.4,ease:'power2.out',transformPerspective:800});});card.addEventListener('mouseleave',()=>{gsap.to(card,{rotateY:0,rotateX:0,duration:0.7,ease:'elastic.out(1,0.4)'});});});
       gsap.to('.exploration-title',{y:0,opacity:1,duration:1,scrollTrigger:{trigger:'#explorations',start:'top 75%'}});
       gsap.to('.exploration-text',{opacity:1,duration:0.8,scrollTrigger:{trigger:'#explorations',start:'top 70%'}});
       const expItems=gsap.utils.toArray('.exp-img-item');expItems.forEach((el,i)=>{const col=i%3,row=Math.floor(i/3);const xO=(col-1)*60,yO=(row===0?-1:1)*50;gsap.fromTo(el,{y:yO+40,x:xO,opacity:0,scale:0.88,rotateY:(col-1)*6},{y:0,x:0,opacity:1,scale:1,rotateY:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',end:'top 50%',scrub:1}});gsap.to(el,{y:(i%2===0?-25:25),ease:'none',scrollTrigger:{trigger:'#exploration-grid',start:'top bottom',end:'bottom top',scrub:2}});});
@@ -368,13 +369,27 @@
       gsap.to('.contact-btn',{y:0,opacity:1,duration:0.8,scrollTrigger:{trigger:'#contact',start:'top 65%'}});
       ScrollTrigger.create({trigger:'.about-text',start:'top 80%',once:true,onEnter:()=>{document.querySelectorAll('.counter-number').forEach(el=>{const t=parseInt(el.dataset.target),s=el.dataset.suffix||'';let c=0;const step=Math.max(1,Math.ceil(t/60));const iv=setInterval(()=>{c+=step;if(c>=t){el.textContent=t+s;clearInterval(iv);}else el.textContent=c+s;},30);});}});
       document.querySelectorAll('.portfolio-filter-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.portfolio-filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');const f=this.dataset.filter;document.querySelectorAll('.gallery-card').forEach((item,i)=>{const show=f==='all'||item.dataset.category===f;gsap.to(item,{opacity:show?1:0.3,scale:show?1:0.95,duration:0.5,delay:i*0.05});});});});
-      const secs=['home','services','portfolio','about','team','contact'];ScrollTrigger.create({trigger:'#main-content',start:'top top',end:'bottom bottom',onUpdate:()=>{let cur='home';for(let i=secs.length-1;i>=0;i--){const el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=200){cur=secs[i];break;}}document.querySelectorAll('.nav-btn').forEach(btn=>{if(btn.dataset.section===cur){btn.classList.add('active-nav');btn.classList.remove('text-white/70');}else{btn.classList.remove('active-nav');btn.classList.add('text-white/70');}});});}});
+      const secs=['home','services','portfolio','about','team','contact'];ScrollTrigger.create({trigger:'#main-content',start:'top top',end:'bottom bottom',onUpdate:()=>{let cur='home';for(let i=secs.length-1;i>=0;i--){const el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=200){cur=secs[i];break;}}document.querySelectorAll('.nav-btn').forEach(btn=>{if(btn.dataset.section===cur){btn.classList.add('active-nav');btn.classList.remove('text-white/70');}else{btn.classList.remove('active-nav');btn.classList.add('text-white/70');}});}});
       setTimeout(()=>ScrollTrigger.refresh(),100);
     }
     function openLightbox(src){const lb=document.getElementById('lightbox'),li=document.getElementById('lightbox-img');li.src=src;lb.classList.remove('opacity-0','pointer-events-none');lb.classList.add('opacity-100','pointer-events-auto');gsap.fromTo(li,{scale:0.8,opacity:0},{scale:1,opacity:1,duration:0.5});}
     function closeLightbox(){const lb=document.getElementById('lightbox');gsap.to(lb,{opacity:0,duration:0.3,onComplete:()=>{lb.classList.add('opacity-0','pointer-events-none');lb.classList.remove('opacity-100','pointer-events-auto');}});}
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeLightbox();});
-    let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!isMobile){const gt=document.getElementById('gallery-track');if(gt){gt.style.left='0px';const nO=Math.max(0,(window.innerWidth-window.innerWidth*0.7)/2-24);gsap.set(gt,{x:nO});ScrollTrigger.refresh();}},250);}});
+    let rt;window.addEventListener('resize',()=>{
+      clearTimeout(rt);
+      rt = setTimeout(()=>{
+        if (!isMobile) {
+          const gt = document.getElementById('gallery-track');
+          if (gt) {
+            gt.style.left = '0px';
+            const newOffset = Math.max(0, (window.innerWidth - window.innerWidth * 0.7) / 2 - 24);
+            galleryStart = newOffset;
+            gsap.set(gt, { x: newOffset });
+          }
+          ScrollTrigger.refresh();
+        }
+      }, 250);
+    });
   </script>
 </body>
 </html>
