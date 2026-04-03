@@ -18,18 +18,8 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            body: ['Inter', 'sans-serif'],
-            display: ['Instrument Serif', 'serif'],
-          },
-          colors: {
-            bg: '#0a0a0a',
-            surface: '#141414',
-            'text-primary': '#f5f5f5',
-            muted: '#878787',
-            stroke: '#1f1f1f',
-            accent: '#89aacc',
-          },
+          fontFamily: { body: ['Inter', 'sans-serif'], display: ['Instrument Serif', 'serif'] },
+          colors: { bg: '#0a0a0a', surface: '#141414', 'text-primary': '#f5f5f5', muted: '#878787', stroke: '#1f1f1f', accent: '#89aacc' },
         },
       },
     }
@@ -39,9 +29,7 @@
     html { overflow-x: hidden; }
     body { background: #0a0a0a; color: #f5f5f5; font-family: 'Inter', sans-serif; overflow-x: hidden; min-height: 100vh; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
     img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; }
-
     .accent-gradient { background: linear-gradient(135deg, #89AACC 0%, #4E85BF 50%, #89AACC 100%); }
-
     @keyframes scroll-down { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(10px); opacity: 1; } }
     @keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes ping-slow { 0%, 100% { transform: scale(1); opacity: 0.75; } 50% { transform: scale(2.5); opacity: 0; } }
@@ -49,110 +37,80 @@
     @keyframes float-reverse { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(20px) rotate(-5deg); } }
     @keyframes glow-pulse { 0%, 100% { box-shadow: 0 0 20px rgba(137, 170, 204, 0.3); } 50% { box-shadow: 0 0 60px rgba(137, 170, 204, 0.6); } }
     @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
     .animate-scroll-down { animation: scroll-down 2s ease-in-out infinite; }
     .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
     .animate-float { animation: float 6s ease-in-out infinite; }
     .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
     .animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
     .animate-spin-slow { animation: spin-slow 20s linear infinite; }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #89AACC 0%, #4E85BF 30%, #89AACC 60%, #4E85BF 100%);
-      background-size: 300% auto;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; animation: gradient-shift 3s ease infinite;
-    }
-
+    .gradient-text { background: linear-gradient(135deg, #89AACC 0%, #4E85BF 30%, #89AACC 60%, #4E85BF 100%); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradient-shift 3s ease infinite; }
     .glass-card { background: rgba(20, 20, 20, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
     .glass-card-heavy { background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.15); }
-
     .video-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
     .video-background iframe { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); pointer-events: none; border: none; }
     @media (min-aspect-ratio: 16/9) { .video-background iframe { height: 300%; top: 50%; transform: translate(-50%, -50%); } }
     @media (max-aspect-ratio: 9/16) { .video-background iframe { width: 300%; left: 50%; transform: translate(-50%, -50%); } }
     @media (min-aspect-ratio: 9/16) and (max-aspect-ratio: 16/9) { .video-background iframe { width: 177.78vh; min-width: 177.78vh; height: 100%; left: 50%; transform: translate(-50%, -50%); } }
     .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: rgba(10, 10, 10, 0.2); }
-
-    #cloud-bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-    #cloud-fg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 50; pointer-events: none; }
-
     #main-content { position: relative; z-index: 2; }
     .active-nav { background: rgba(255, 255, 255, 0.2) !important; color: #f5f5f5 !important; backdrop-filter: blur(10px); }
     .portfolio-filter-btn.active { background: #f5f5f5 !important; color: #0a0a0a !important; }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: #89aacc; border-radius: 2px; }
-
+    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: #0a0a0a; } ::-webkit-scrollbar-thumb { background: #89aacc; border-radius: 2px; }
     .progress-bar { position: fixed; top: 0; left: 0; width: 100%; height: 3px; z-index: 100; background: linear-gradient(90deg, #89AACC, #4E85BF); transform-origin: left; transform: scaleX(0); }
-
     .cursor-follower { position: fixed; width: 30px; height: 30px; border: 2px solid rgba(137, 170, 204, 0.8); border-radius: 50%; pointer-events: none; z-index: 9999; transition: width 0.2s ease, height 0.2s ease; backdrop-filter: blur(5px); }
     @media (max-width: 767px) { .cursor-follower { display: none; } }
-
     .portfolio-gallery { position: relative; }
     .gallery-container { height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .gallery-track { display: flex; gap: 2rem; position: absolute; will-change: transform; }
+    .gallery-track { display: flex; gap: 2rem; position: absolute; left: 0; will-change: transform; }
     .gallery-card { width: 70vw; height: 70vh; flex-shrink: 0; border-radius: 2rem; overflow: hidden; position: relative; transition: all 0.5s ease; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
     .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
     .gallery-card:hover img { transform: scale(1.1); }
-    .gallery-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.5s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; }
+    .gallery-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%); opacity: 0; transition: opacity 0.5s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem; }
     .gallery-card:hover .gallery-card-overlay { opacity: 1; }
-
+    .gallery-skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .gallery-skill-tags span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(137,170,204,0.4); color: #89aacc; background: rgba(137,170,204,0.08); backdrop-filter: blur(8px); }
     .flip-card { background: transparent; perspective: 1000px; cursor: pointer; }
     .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
     .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
     .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 1.5rem; }
     .flip-card-back { transform: rotateY(180deg); background: linear-gradient(135deg, rgba(137,170,204,0.2), rgba(78,133,191,0.1)); backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; }
-
     .scroll-reveal { opacity: 0; transform: translateY(60px) scale(0.92); transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0) scale(1); }
-    .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
-    .scroll-reveal:nth-child(3) { transition-delay: 0.2s; }
-    .scroll-reveal:nth-child(4) { transition-delay: 0.15s; }
-    .scroll-reveal:nth-child(5) { transition-delay: 0.25s; }
-    .scroll-reveal:nth-child(6) { transition-delay: 0.3s; }
-    .scroll-reveal:last-child { transition-delay: 0.1s; }
+    .scroll-reveal:nth-child(2) { transition-delay: 0.1s; } .scroll-reveal:nth-child(3) { transition-delay: 0.2s; } .scroll-reveal:nth-child(4) { transition-delay: 0.15s; } .scroll-reveal:nth-child(5) { transition-delay: 0.25s; } .scroll-reveal:nth-child(6) { transition-delay: 0.3s; } .scroll-reveal:last-child { transition-delay: 0.1s; }
 
-    .team-card { position: relative; border-radius: 1.5rem; overflow: hidden; background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.5s ease, box-shadow 0.5s ease; }
-    .team-card:hover { border-color: rgba(137, 170, 204, 0.4); box-shadow: 0 25px 60px -15px rgba(137, 170, 204, 0.15), inset 0 1px 0 rgba(137, 170, 204, 0.1); }
-    .team-card-initial { position: absolute; top: -30px; right: -15px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(8rem, 14vw, 14rem); line-height: 0.85; color: rgba(137, 170, 204, 0.05); pointer-events: none; user-select: none; transition: color 0.5s ease; }
-    .team-card:hover .team-card-initial { color: rgba(137, 170, 204, 0.1); }
-    .team-card-corner { position: absolute; top: 1.25rem; left: 1.25rem; width: 20px; height: 20px; border-top: 1px solid rgba(137, 170, 204, 0.25); border-left: 1px solid rgba(137, 170, 204, 0.25); transition: border-color 0.5s ease; }
-    .team-card:hover .team-card-corner { border-color: rgba(137, 170, 204, 0.6); }
-    .team-card-corner-br { position: absolute; bottom: 1.25rem; right: 1.25rem; width: 20px; height: 20px; border-bottom: 1px solid rgba(137, 170, 204, 0.15); border-right: 1px solid rgba(137, 170, 204, 0.15); transition: border-color 0.5s ease; }
-    .team-card:hover .team-card-corner-br { border-color: rgba(137, 170, 204, 0.5); }
-    .team-card-num { font-size: 0.6rem; color: rgba(255,255,255,0.15); letter-spacing: 0.2em; font-weight: 500; }
-    .team-card-role { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.3em; color: #89aacc; font-weight: 500; }
-    .team-card-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(2rem, 4vw, 3rem); color: #f5f5f5; line-height: 1.1; }
-    .team-card-line-el { width: 0; height: 1px; background: linear-gradient(90deg, rgba(137,170,204,0.6), transparent); transition: width 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+    .team-card { position: relative; border-radius: 1.5rem; overflow: hidden; background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s cubic-bezier(0.23,1,0.32,1); }
+    .team-card:hover { border-color: rgba(137, 170, 204, 0.5); box-shadow: 0 30px 80px -20px rgba(137, 170, 204, 0.25), 0 0 40px -10px rgba(137, 170, 204, 0.15), inset 0 1px 0 rgba(137, 170, 204, 0.15); }
+    .team-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(137,170,204,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; z-index: 1; }
+    .team-card:hover::before { opacity: 1; }
+    .team-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 40%, rgba(137,170,204,0.04) 100%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; z-index: 1; }
+    .team-card:hover::after { opacity: 1; }
+    .team-card-initial { position: absolute; top: -30px; right: -15px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(8rem, 14vw, 14rem); line-height: 0.85; color: rgba(137, 170, 204, 0.05); pointer-events: none; user-select: none; transition: color 0.6s ease, transform 0.8s cubic-bezier(0.23,1,0.32,1); }
+    .team-card:hover .team-card-initial { color: rgba(137, 170, 204, 0.15); transform: translate(-8px, -8px) scale(1.05); }
+    .team-card-corner { position: absolute; top: 1.25rem; left: 1.25rem; width: 20px; height: 20px; border-top: 1px solid rgba(137, 170, 204, 0.25); border-left: 1px solid rgba(137, 170, 204, 0.25); transition: border-color 0.6s ease, width 0.5s ease, height 0.5s ease; z-index: 5; }
+    .team-card:hover .team-card-corner { border-color: rgba(137, 170, 204, 0.8); width: 28px; height: 28px; }
+    .team-card-corner-br { position: absolute; bottom: 1.25rem; right: 1.25rem; width: 20px; height: 20px; border-bottom: 1px solid rgba(137, 170, 204, 0.15); border-right: 1px solid rgba(137, 170, 204, 0.15); transition: border-color 0.6s ease, width 0.5s ease, height 0.5s ease; z-index: 5; }
+    .team-card:hover .team-card-corner-br { border-color: rgba(137, 170, 204, 0.7); width: 28px; height: 28px; }
+    .team-card-num { font-size: 0.6rem; color: rgba(255,255,255,0.15); letter-spacing: 0.2em; font-weight: 500; transition: color 0.4s ease; position: relative; z-index: 5; }
+    .team-card:hover .team-card-num { color: rgba(137,170,204,0.5); }
+    .team-card-role { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.3em; color: #89aacc; font-weight: 500; transition: letter-spacing 0.5s ease, color 0.4s ease; position: relative; z-index: 5; }
+    .team-card:hover .team-card-role { letter-spacing: 0.4em; color: #a8c4e0; }
+    .team-card-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(2rem, 4vw, 3rem); color: #f5f5f5; line-height: 1.1; transition: color 0.4s ease, text-shadow 0.4s ease; position: relative; z-index: 5; }
+    .team-card:hover .team-card-name { color: #ffffff; text-shadow: 0 0 30px rgba(137,170,204,0.3); }
+    .team-card-line-el { width: 0; height: 1px; background: linear-gradient(90deg, rgba(137,170,204,0.6), transparent); transition: width 0.7s cubic-bezier(0.23, 1, 0.32, 1); position: relative; z-index: 5; }
     .team-card.active .team-card-line-el { width: 80px; }
-    .team-card.active:hover .team-card-line-el { width: 130px; }
-    .team-card-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; }
-    .team-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .team-card-tags span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.7rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); font-weight: 400; transition: all 0.4s ease; }
-    .team-card:hover .team-card-tags span { border-color: rgba(137,170,204,0.2); color: rgba(255,255,255,0.6); }
+    .team-card.active:hover .team-card-line-el { width: 140px; background: linear-gradient(90deg, rgba(137,170,204,0.9), rgba(137,170,204,0.2), transparent); }
+    .team-card-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; transition: color 0.4s ease; position: relative; z-index: 5; }
+    .team-card:hover .team-card-desc { color: rgba(255,255,255,0.6); }
+    .team-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; position: relative; z-index: 5; }
+    .team-card-tags span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.7rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); font-weight: 400; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); }
+    .team-card:hover .team-card-tags span { border-color: rgba(137,170,204,0.3); color: rgba(255,255,255,0.7); background: rgba(137,170,204,0.06); transform: translateY(-2px); }
     .team-perspective { perspective: 1200px; transform-style: preserve-3d; }
     .team-deco-number { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22rem; line-height: 0.8; color: rgba(255,255,255,0.015); pointer-events: none; user-select: none; }
-
     .loading-word-text { color: #f5f5f5; }
-
     @media (max-width: 767px) {
-      .animate-scroll-down, .animate-ping-slow, .animate-float,
-      .animate-float-reverse, .animate-glow, .animate-spin-slow, .gradient-text { animation: none !important; }
+      .animate-scroll-down, .animate-ping-slow, .animate-float, .animate-float-reverse, .animate-glow, .animate-spin-slow, .gradient-text { animation: none !important; }
       *, *::before, *::after { transition-duration: 0s !important; }
-      .hero-letter, .hero-letter2, .hero-subtitle, .hero-tagline,
-      .hero-buttons, .hero-scroll-indicator,
-      .services-label, .services-title, .services-line,
-      .portfolio-label, .portfolio-title, .portfolio-line, .portfolio-filters,
-      .about-label, .about-title, .about-line, .about-text, .about-img-container,
-      .process-title, .process-step,
-      .team-label, .team-title, .team-subtitle, .team-line, .team-card, .team-deco-number,
-      .team-card-initial, .team-card-corner, .team-card-corner-br,
-      .team-card-num, .team-card-role, .team-card-name, .team-card-line-el, .team-card-desc,
-      .team-card-tags span, .team-bottom-tag,
-      .exploration-title, .exploration-text,
-      .contact-title, .contact-text, .contact-btn { opacity: 1 !important; transform: none !important; }
+      .hero-letter, .hero-letter2, .hero-subtitle, .hero-tagline, .hero-buttons, .hero-scroll-indicator, .services-label, .services-title, .services-line, .portfolio-label, .portfolio-title, .portfolio-line, .portfolio-filters, .about-label, .about-title, .about-line, .about-text, .about-img-container, .process-title, .process-step, .team-label, .team-title, .team-subtitle, .team-line, .team-card, .team-deco-number, .team-card-initial, .team-card-corner, .team-card-corner-br, .team-card-num, .team-card-role, .team-card-name, .team-card-line-el, .team-card-desc, .team-card-tags span, .team-bottom-tag, .exploration-title, .exploration-text, .contact-title, .contact-text, .contact-btn { opacity: 1 !important; transform: none !important; }
       .services-line, .about-line, .team-line { transform: scaleX(1) !important; }
       .team-card.active .team-card-line-el { width: 80px !important; }
       .scroll-reveal { opacity: 1 !important; transform: none !important; }
@@ -161,47 +119,24 @@
       .flip-card:hover .flip-card-inner { transform: none !important; }
       .team-perspective { perspective: none; }
       .exp-img-item { opacity: 1 !important; transform: none !important; }
-      #cloud-bg-canvas, #cloud-fg-canvas { display: none !important; }
-      ::-webkit-scrollbar { display: none; }
-      html { -ms-overflow-style: none; scrollbar-width: none; }
+      ::-webkit-scrollbar { display: none; } html { -ms-overflow-style: none; scrollbar-width: none; }
     }
   </style>
 </head>
 <body oncopy="return false" oncut="return false">
-
   <div class="progress-bar" id="progress-bar"></div>
   <div class="cursor-follower" id="cursor"></div>
-
-  <!-- Loading Screen -->
   <div id="loading-screen" class="fixed inset-0 z-[9999] bg-bg flex flex-col items-center justify-center">
     <div id="loading-word" class="relative text-4xl md:text-6xl font-display italic loading-word-text">Pixel</div>
     <div id="loading-counter" class="absolute bottom-20 text-7xl md:text-9xl font-display text-text-primary tabular-nums opacity-20">000</div>
-    <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
-      <div id="loading-bar" class="h-full accent-gradient" style="transform: scaleX(0);"></div>
-    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50"><div id="loading-bar" class="h-full accent-gradient" style="transform: scaleX(0);"></div></div>
   </div>
-
-  <!-- Video Background -->
-  <div class="video-background">
-    <iframe src="https://player.vimeo.com/video/1179608005?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&badge=0&controls=0&playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-  </div>
+  <div class="video-background"><iframe src="https://player.vimeo.com/video/1179608005?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&badge=0&controls=0&playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div>
   <div class="video-overlay"></div>
-
-  <!-- 3D Cloud Canvases -->
-  <canvas id="cloud-bg-canvas"></canvas>
-  <canvas id="cloud-fg-canvas"></canvas>
-
   <div id="main-content" class="opacity-0">
-
-    <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 md:pt-5 px-3 pointer-events-none">
       <div id="nav-container" class="inline-flex items-center rounded-full backdrop-blur-2xl border border-white/20 bg-black/30 px-1.5 py-1.5 transition-all duration-500 pointer-events-auto">
-        <div class="relative group cursor-pointer">
-          <div class="absolute inset-0 rounded-full accent-gradient group-hover:opacity-80 transition-opacity duration-300"></div>
-          <div class="relative w-7 h-7 rounded-full bg-black/80 flex items-center justify-center m-[1.5px] group-hover:scale-110 transition-transform duration-300">
-            <span class="font-display italic text-[10px]">🥚</span>
-          </div>
-        </div>
+        <div class="relative group cursor-pointer"><div class="absolute inset-0 rounded-full accent-gradient group-hover:opacity-80 transition-opacity duration-300"></div><div class="relative w-7 h-7 rounded-full bg-black/80 flex items-center justify-center m-[1.5px] group-hover:scale-110 transition-transform duration-300"><span class="font-display italic text-[10px]">🥚</span></div></div>
         <div class="hidden sm:block w-px h-4 bg-white/20 mx-0.5"></div>
         <div class="flex items-center gap-0.5">
           <button class="nav-btn active-nav text-[10px] sm:text-xs rounded-full px-2 sm:px-3 py-1 sm:py-1.5 transition-all duration-300" data-section="home">Home</button>
@@ -210,61 +145,22 @@
           <button class="nav-btn text-[10px] sm:text-xs rounded-full px-2 sm:px-3 py-1 sm:py-1.5 transition-all duration-300 text-white/70 hover:text-white hover:bg-white/10" data-section="about">About</button>
         </div>
         <div class="hidden sm:block w-px h-4 bg-white/20 mx-0.5"></div>
-        <button class="contact-nav-btn relative group text-[10px] sm:text-xs rounded-full px-2 sm:px-3 py-1 sm:py-1.5" data-section="contact">
-          <span class="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-          <span class="relative flex items-center gap-1 bg-black/40 rounded-full px-2 sm:px-3 py-1 sm:py-1.5 backdrop-blur-xl border border-white/20">Talk to us <span class="text-[9px]">↗</span></span>
-        </button>
+        <button class="contact-nav-btn relative group text-[10px] sm:text-xs rounded-full px-2 sm:px-3 py-1 sm:py-1.5" data-section="contact"><span class="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span><span class="relative flex items-center gap-1 bg-black/40 rounded-full px-2 sm:px-3 py-1 sm:py-1.5 backdrop-blur-xl border border-white/20">Talk to us <span class="text-[9px]">↗</span></span></button>
       </div>
     </nav>
-
-    <!-- HERO -->
     <section id="home" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
       <div class="relative z-10 max-w-6xl mx-auto text-center">
-        <div class="overflow-hidden mb-6">
-          <p class="hero-subtitle text-xs md:text-sm text-white/60 uppercase tracking-[0.5em] opacity-0 translate-y-10">Creative Digital Studio</p>
-        </div>
-        <div class="mb-2">
-          <h1 class="text-7xl md:text-9xl lg:text-[12rem] font-display italic leading-[0.85] tracking-tight">
-            <span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0s">P</span>
-            <span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.1s">i</span>
-            <span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.2s">x</span>
-            <span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.3s">e</span>
-            <span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.4s">l</span>
-          </h1>
-        </div>
-        <div class="mb-8">
-          <h1 class="text-7xl md:text-9xl lg:text-[12rem] font-display italic leading-[0.85] tracking-tight">
-            <span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.5s;font-size:inherit;">E</span>
-            <span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.6s;font-size:inherit;">g</span>
-            <span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.7s;font-size:inherit;">g</span>
-          </h1>
-        </div>
-        <div class="overflow-hidden mb-10">
-          <p class="hero-tagline text-base md:text-xl text-white/70 opacity-0 translate-y-10 max-w-2xl mx-auto">
-            We are <span id="role-rotator" class="font-display italic text-white">Creative</span> designers & developers.
-          </p>
-        </div>
-        <div class="overflow-hidden">
-          <div class="hero-buttons flex gap-4 flex-wrap justify-center opacity-0 translate-y-10">
-            <button class="magnetic-btn group relative rounded-full text-sm px-8 py-4 bg-white text-black hover:bg-transparent hover:text-white transition-all duration-500 hover:scale-110 border border-white portfolio-scroll-btn"><span class="relative">View Our Work</span></button>
-            <button class="magnetic-btn group relative rounded-full text-sm px-8 py-4 border-2 border-white/30 bg-black/30 text-white hover:border-white transition-all duration-500 hover:scale-110 backdrop-blur-xl contact-scroll-btn"><span class="relative">Start a Project</span></button>
-          </div>
-        </div>
+        <div class="overflow-hidden mb-6"><p class="hero-subtitle text-xs md:text-sm text-white/60 uppercase tracking-[0.5em] opacity-0 translate-y-10">Creative Digital Studio</p></div>
+        <div class="mb-2"><h1 class="text-7xl md:text-9xl lg:text-[12rem] font-display italic leading-[0.85] tracking-tight"><span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0s">P</span><span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.1s">i</span><span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.2s">x</span><span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.3s">e</span><span class="hero-letter inline-block opacity-0 translate-y-full transition-all duration-700" style="transition-delay:0.4s">l</span></h1></div>
+        <div class="mb-8"><h1 class="text-7xl md:text-9xl lg:text-[12rem] font-display italic leading-[0.85] tracking-tight"><span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.5s;font-size:inherit;">E</span><span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.6s;font-size:inherit;">g</span><span class="hero-letter2 inline-block opacity-0 translate-y-full transition-all duration-700 text-white" style="transition-delay:0.7s;font-size:inherit;">g</span></h1></div>
+        <div class="overflow-hidden mb-10"><p class="hero-tagline text-base md:text-xl text-white/70 opacity-0 translate-y-10 max-w-2xl mx-auto">We are <span id="role-rotator" class="font-display italic text-white">Creative</span> designers & developers.</p></div>
+        <div class="overflow-hidden"><div class="hero-buttons flex gap-4 flex-wrap justify-center opacity-0 translate-y-10"><button class="magnetic-btn group relative rounded-full text-sm px-8 py-4 bg-white text-black hover:bg-transparent hover:text-white transition-all duration-500 hover:scale-110 border border-white portfolio-scroll-btn"><span class="relative">View Our Work</span></button><button class="magnetic-btn group relative rounded-full text-sm px-8 py-4 border-2 border-white/30 bg-black/30 text-white hover:border-white transition-all duration-500 hover:scale-110 backdrop-blur-xl contact-scroll-btn"><span class="relative">Start a Project</span></button></div></div>
       </div>
-      <div class="absolute bottom-14 right-6 md:right-16 flex flex-col items-end gap-3 z-10 hero-scroll-indicator opacity-0">
-        <p class="text-[10px] text-white/40 uppercase tracking-[0.25em]">Scroll to explore</p>
-        <div class="relative w-px h-14 bg-white/20 overflow-hidden"><div class="absolute top-0 w-full h-1/3 bg-white animate-scroll-down"></div></div>
-      </div>
+      <div class="absolute bottom-14 right-6 md:right-16 flex flex-col items-end gap-3 z-10 hero-scroll-indicator opacity-0"><p class="text-[10px] text-white/40 uppercase tracking-[0.25em]">Scroll to explore</p><div class="relative w-px h-14 bg-white/20 overflow-hidden"><div class="absolute top-0 w-full h-1/3 bg-white animate-scroll-down"></div></div></div>
     </section>
-
-    <!-- SERVICES -->
     <section id="services" class="relative py-32 px-6 overflow-hidden">
       <div class="max-w-[1400px] mx-auto">
-        <div class="text-center mb-20">
-          <p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 services-label opacity-0">01 — What We Do</p>
-          <h2 class="text-5xl md:text-7xl font-display italic services-title opacity-0 translate-y-20">Our <span class="gradient-text">Expertise</span></h2>
-          <div class="w-20 h-px accent-gradient mx-auto mt-8 services-line scale-x-0"></div>
-        </div>
+        <div class="text-center mb-20"><p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 services-label opacity-0">01 — What We Do</p><h2 class="text-5xl md:text-7xl font-display italic services-title opacity-0 translate-y-20">Our <span class="gradient-text">Expertise</span></h2><div class="w-20 h-px accent-gradient mx-auto mt-8 services-line scale-x-0"></div></div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="flip-card h-[400px]"><div class="flip-card-inner"><div class="flip-card-front glass-card rounded-3xl p-8 flex flex-col items-center justify-center text-center"><div class="text-7xl mb-6 animate-float">🎨</div><h3 class="text-2xl font-semibold mb-4">Graphic Design</h3><p class="text-white/60">Visual identities that leave lasting impressions</p></div><div class="flip-card-back glass-card-heavy rounded-3xl p-8 flex flex-col items-center justify-center text-center"><p class="text-white/80 leading-relaxed">Brand identities, posters, thumbnails — scroll-stopping visuals crafted with purpose and precision.</p><div class="mt-6 text-accent">Learn more →</div></div></div></div>
           <div class="flip-card h-[400px]"><div class="flip-card-inner"><div class="flip-card-front glass-card rounded-3xl p-8 flex flex-col items-center justify-center text-center"><div class="text-7xl mb-6 animate-float-reverse">🎬</div><h3 class="text-2xl font-semibold mb-4">Video Editing</h3><p class="text-white/60">Stories that move — literally</p></div><div class="flip-card-back glass-card-heavy rounded-3xl p-8 flex flex-col items-center justify-center text-center"><p class="text-white/80 leading-relaxed">Dynamic edits for creators & brands. From raw footage to cinematic masterpieces.</p><div class="mt-6 text-accent">Learn more →</div></div></div></div>
@@ -275,15 +171,9 @@
         </div>
       </div>
     </section>
-
-    <!-- PORTFOLIO -->
     <section id="portfolio" class="relative py-32 px-6 overflow-hidden">
       <div class="max-w-[1400px] mx-auto">
-        <div class="text-center mb-20">
-          <p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 portfolio-label opacity-0">02 — Featured Work</p>
-          <h2 class="text-5xl md:text-7xl font-display italic portfolio-title opacity-0 translate-y-20">Selected <span class="gradient-text">Projects</span></h2>
-          <div class="w-20 h-px accent-gradient mx-auto mt-8 portfolio-line scale-x-0"></div>
-        </div>
+        <div class="text-center mb-20"><p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 portfolio-label opacity-0">02 — Featured Work</p><h2 class="text-5xl md:text-7xl font-display italic portfolio-title opacity-0 translate-y-20">Selected <span class="gradient-text">Projects</span></h2><div class="w-20 h-px accent-gradient mx-auto mt-8 portfolio-line scale-x-0"></div></div>
         <div class="portfolio-filters flex flex-wrap gap-3 justify-center mb-12 opacity-0">
           <button class="portfolio-filter-btn active text-sm rounded-full px-6 py-3 bg-white text-black transition-all duration-300" data-filter="all">All Work</button>
           <button class="portfolio-filter-btn text-sm rounded-full px-6 py-3 border border-white/20 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300" data-filter="branding">Branding</button>
@@ -295,17 +185,15 @@
       <div class="portfolio-gallery" id="portfolio-gallery">
         <div class="gallery-container" id="gallery-container">
           <div class="gallery-track" id="gallery-track">
-            <div class="gallery-card" data-category="branding"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&auto=format&fit=crop&q=80" alt="Brand Identity" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Branding</span><h3 class="text-3xl font-display italic mt-3 text-white">Luxury Brand Identity</h3><p class="text-white">Complete visual identity system for premium fashion brand</p></div></div>
-            <div class="gallery-card" data-category="uiux"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80" alt="App Design" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">UI/UX</span><h3 class="text-3xl font-display italic mt-3 text-white">Fintech App Redesign</h3><p class="text-white">User-centered design for banking app with 2M+ users</p></div></div>
-            <div class="gallery-card" data-category="web"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80" alt="E-Commerce" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Web</span><h3 class="text-3xl font-display italic mt-3 text-white">E-Commerce Platform</h3><p class="text-white">High-performance shop with 99% Lighthouse score</p></div></div>
-            <div class="gallery-card" data-category="video"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&auto=format&fit=crop&q=80" alt="Video Campaign" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Video</span><h3 class="text-3xl font-display italic mt-3 text-white">Brand Film 2024</h3><p class="text-white">Cinematic campaign that went viral with 5M+ views</p></div></div>
-            <div class="gallery-card" data-category="branding"><img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&auto=format&fit=crop&q=80" alt="Startup Branding" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Branding</span><h3 class="text-3xl font-display italic mt-3 text-white">Startup Identity</h3><p class="text-white">From zero to iconic — complete brand transformation</p></div></div>
+            <div class="gallery-card" data-category="branding"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&auto=format&fit=crop&q=80" alt="Brand Identity" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Branding</span><h3 class="text-3xl font-display italic mt-3 text-white">Luxury Brand Identity</h3><p class="text-white/80 text-sm mt-2">Complete visual identity — logo, typography, color palette & brand guidelines crafted for a premium fashion house</p><div class="gallery-skill-tags"><span>Graphic Design</span><span>Logo Creation</span><span>Brand Guidelines</span><span>Visual Identity</span><span>Color System</span></div></div></div>
+            <div class="gallery-card" data-category="uiux"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80" alt="App Design" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">UI/UX</span><h3 class="text-3xl font-display italic mt-3 text-white">Fintech App Redesign</h3><p class="text-white/80 text-sm mt-2">Full UX research, wireframing, prototyping & design system for a banking app with 2M+ active users</p><div class="gallery-skill-tags"><span>User Research</span><span>Wireframing</span><span>Prototyping</span><span>Design System</span><span>Usability Testing</span></div></div></div>
+            <div class="gallery-card" data-category="web"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80" alt="E-Commerce" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Web</span><h3 class="text-3xl font-display italic mt-3 text-white">E-Commerce Platform</h3><p class="text-white/80 text-sm mt-2">Full-stack development with 99% Lighthouse score — responsive, fast, SEO-optimized with seamless checkout flow</p><div class="gallery-skill-tags"><span>Frontend Dev</span><span>Backend Integration</span><span>Performance</span><span>Responsive</span><span>SEO</span></div></div></div>
+            <div class="gallery-card" data-category="video"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&auto=format&fit=crop&q=80" alt="Video Campaign" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Video</span><h3 class="text-3xl font-display italic mt-3 text-white">Brand Film 2024</h3><p class="text-white/80 text-sm mt-2">End-to-end production — editing, motion graphics, color grading & sound design. 5M+ views viral campaign</p><div class="gallery-skill-tags"><span>Video Editing</span><span>Motion Graphics</span><span>Color Grading</span><span>Sound Design</span><span>Post-Production</span></div></div></div>
+            <div class="gallery-card" data-category="branding"><img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&auto=format&fit=crop&q=80" alt="Social Media Build" /><div class="gallery-card-overlay"><span class="text-xs text-accent bg-accent/20 px-3 py-1 rounded-full w-fit">Branding</span><h3 class="text-3xl font-display italic mt-3 text-white">Social Media Build</h3><p class="text-white/80 text-sm mt-2">Channel creation, content strategy, post design & scheduling — built from zero to 10K+ engaged followers</p><div class="gallery-skill-tags"><span>Channel Building</span><span>Content Creation</span><span>Post Design</span><span>Scheduling</span><span>Analytics</span></div></div></div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- KINETIC TYPOGRAPHY -->
     <section class="kinetic-section relative py-48 md:py-80 overflow-hidden">
       <div class="relative z-10 text-center">
         <div class="overflow-hidden"><h2 class="text-4xl sm:text-8xl md:text-[10rem] font-display italic text-white whitespace-nowrap kinetic-line">EVERY PIXEL SERVES A PURPOSE</h2></div>
@@ -313,15 +201,9 @@
         <div class="overflow-hidden mt-6 md:mt-8"><h2 class="text-4xl sm:text-8xl md:text-[10rem] font-display italic text-white whitespace-nowrap kinetic-line">CREATE WITH PASSION</h2></div>
       </div>
     </section>
-
-    <!-- ABOUT -->
     <section id="about" class="relative py-32 px-6 overflow-hidden">
       <div class="max-w-[1400px] mx-auto">
-        <div class="text-center mb-20">
-          <p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 about-label opacity-0">03 — About Us</p>
-          <h2 class="text-5xl md:text-7xl font-display italic about-title opacity-0 translate-y-20">The Pixel Egg <span class="gradient-text">Story</span></h2>
-          <div class="w-20 h-px accent-gradient mx-auto mt-8 about-line scale-x-0"></div>
-        </div>
+        <div class="text-center mb-20"><p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 about-label opacity-0">03 — About Us</p><h2 class="text-5xl md:text-7xl font-display italic about-title opacity-0 translate-y-20">The Pixel Egg <span class="gradient-text">Story</span></h2><div class="w-20 h-px accent-gradient mx-auto mt-8 about-line scale-x-0"></div></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div class="about-text opacity-0 translate-x-[-50px]">
             <p class="text-3xl md:text-4xl font-light leading-relaxed text-white/80 mb-8">We bring your ideas to life with <strong class="text-white">style and precision.</strong></p>
@@ -350,64 +232,25 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== TEAM SECTION ===== -->
     <section id="team" class="relative py-40 md:py-52 px-6 overflow-hidden">
       <div class="team-deco-number absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 select-none">05</div>
       <div class="max-w-[1400px] mx-auto relative z-10">
-        <div class="text-center mb-24 md:mb-36">
-          <p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 team-label opacity-0">04 — The Crew</p>
-          <h2 class="text-5xl md:text-7xl lg:text-8xl font-display italic team-title opacity-0">Meet Our <span class="gradient-text">Team</span></h2>
-          <p class="text-white/40 max-w-lg mx-auto mt-6 text-sm md:text-base team-subtitle opacity-0">Five minds. One mission. Crafting digital excellence together.</p>
-          <div class="w-20 h-px accent-gradient mx-auto mt-8 team-line scale-x-0"></div>
-        </div>
+        <div class="text-center mb-24 md:mb-36"><p class="text-xs text-accent uppercase tracking-[0.5em] mb-4 team-label opacity-0">04 — The Crew</p><h2 class="text-5xl md:text-7xl lg:text-8xl font-display italic team-title opacity-0">Meet Our <span class="gradient-text">Team</span></h2><p class="text-white/40 max-w-lg mx-auto mt-6 text-sm md:text-base team-subtitle opacity-0">Five minds. One mission. Crafting digital excellence together.</p><div class="w-20 h-px accent-gradient mx-auto mt-8 team-line scale-x-0"></div></div>
         <div class="team-perspective">
           <div class="team-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6">
-            <div class="team-card md:col-span-1 lg:col-span-3 min-h-[320px] md:min-h-[380px] p-7 md:p-10 flex flex-col justify-between" style="opacity:0;">
-              <div class="team-card-initial">H</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div>
-              <div class="relative z-10"><div class="team-card-num">01</div><div class="team-card-role mt-3">Graphic Designer & Artist</div></div>
-              <div class="relative z-10"><h3 class="team-card-name">Hajer</h3><div class="team-card-line-el my-4"></div><p class="team-card-desc">Crafting visual identities that resonate and endure. Every color, every curve tells a story.</p><div class="team-card-tags mt-4"><span>Branding</span><span>Typography</span><span>Print</span></div></div>
-            </div>
-            <div class="team-card md:col-span-1 lg:col-span-3 min-h-[320px] md:min-h-[380px] p-7 md:p-10 flex flex-col justify-between" style="opacity:0;">
-              <div class="team-card-initial">A</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div>
-              <div class="relative z-10"><div class="team-card-num">02</div><div class="team-card-role mt-3">Manager</div></div>
-              <div class="relative z-10"><h3 class="team-card-name">Amine</h3><div class="team-card-line-el my-4"></div><p class="team-card-desc">Turning creative chaos into structured excellence. The bridge between vision and execution.</p><div class="team-card-tags mt-4"><span>Strategy</span><span>Leadership</span><span>Growth</span></div></div>
-            </div>
-            <div class="team-card md:col-span-1 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;">
-              <div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">O</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div>
-              <div class="relative z-10"><div class="team-card-num">03</div><div class="team-card-role mt-3">Cybersecurity Analyst & Web Developer</div></div>
-              <div class="relative z-10"><h3 class="team-card-name">Omar</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Building digital fortresses that run flawlessly.</p><div class="team-card-tags mt-3"><span>Full-Stack</span><span>Security</span><span>DevOps</span></div></div>
-            </div>
-            <div class="team-card md:col-span-1 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;">
-              <div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">A</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div>
-              <div class="relative z-10"><div class="team-card-num">04</div><div class="team-card-role mt-3">UI/UX Designer & Artist</div></div>
-              <div class="relative z-10"><h3 class="team-card-name">Ahlem</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Designing journeys users never want to leave.</p><div class="team-card-tags mt-3"><span>Research</span><span>Prototyping</span><span>Systems</span></div></div>
-            </div>
-            <div class="team-card md:col-span-2 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;">
-              <div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">W</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div>
-              <div class="relative z-10"><div class="team-card-num">05</div><div class="team-card-role mt-3">Visual Artist</div></div>
-              <div class="relative z-10"><h3 class="team-card-name">Wyrm</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Blurring the line between art and technology.</p><div class="team-card-tags mt-3"><span>Digital Art</span><span>3D</span><span>Motion</span></div></div>
-            </div>
+            <div class="team-card md:col-span-1 lg:col-span-3 min-h-[320px] md:min-h-[380px] p-7 md:p-10 flex flex-col justify-between" style="opacity:0;"><div class="team-card-initial">H</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div><div class="relative z-10"><div class="team-card-num">01</div><div class="team-card-role mt-3">Graphic Designer & Artist</div></div><div class="relative z-10"><h3 class="team-card-name">Hajer</h3><div class="team-card-line-el my-4"></div><p class="team-card-desc">Crafting visual identities that resonate and endure. Every color, every curve tells a story.</p><div class="team-card-tags mt-4"><span>Branding</span><span>Typography</span><span>Print</span></div></div></div>
+            <div class="team-card md:col-span-1 lg:col-span-3 min-h-[320px] md:min-h-[380px] p-7 md:p-10 flex flex-col justify-between" style="opacity:0;"><div class="team-card-initial">A</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div><div class="relative z-10"><div class="team-card-num">02</div><div class="team-card-role mt-3">Manager</div></div><div class="relative z-10"><h3 class="team-card-name">Amine</h3><div class="team-card-line-el my-4"></div><p class="team-card-desc">Turning creative chaos into structured excellence. The bridge between vision and execution.</p><div class="team-card-tags mt-4"><span>Strategy</span><span>Leadership</span><span>Growth</span></div></div></div>
+            <div class="team-card md:col-span-1 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;"><div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">O</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div><div class="relative z-10"><div class="team-card-num">03</div><div class="team-card-role mt-3">Cybersecurity Analyst & Web Developer</div></div><div class="relative z-10"><h3 class="team-card-name">Omar</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Building digital fortresses that run flawlessly.</p><div class="team-card-tags mt-3"><span>Full-Stack</span><span>Security</span><span>DevOps</span></div></div></div>
+            <div class="team-card md:col-span-1 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;"><div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">A</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div><div class="relative z-10"><div class="team-card-num">04</div><div class="team-card-role mt-3">UI/UX Designer & Artist</div></div><div class="relative z-10"><h3 class="team-card-name">Ahlem</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Designing journeys users never want to leave.</p><div class="team-card-tags mt-3"><span>Research</span><span>Prototyping</span><span>Systems</span></div></div></div>
+            <div class="team-card md:col-span-2 lg:col-span-2 min-h-[300px] md:min-h-[350px] p-6 md:p-8 flex flex-col justify-between" style="opacity:0;"><div class="team-card-initial" style="font-size:clamp(6rem,10vw,10rem);">W</div><div class="team-card-corner"></div><div class="team-card-corner-br"></div><div class="relative z-10"><div class="team-card-num">05</div><div class="team-card-role mt-3">Visual Artist</div></div><div class="relative z-10"><h3 class="team-card-name">Wyrm</h3><div class="team-card-line-el my-3"></div><p class="team-card-desc text-[0.75rem]">Blurring the line between art and technology.</p><div class="team-card-tags mt-3"><span>Digital Art</span><span>3D</span><span>Motion</span></div></div></div>
           </div>
         </div>
-        <div class="text-center mt-20 md:mt-28 team-bottom-tag opacity-0">
-          <p class="text-2xl md:text-3xl font-display italic text-white/20">"Alone we go fast, together we go far."</p>
-        </div>
+        <div class="text-center mt-20 md:mt-28 team-bottom-tag opacity-0"><p class="text-2xl md:text-3xl font-display italic text-white/20">"Alone we go fast, together we go far."</p></div>
       </div>
     </section>
-
-    <!-- EXPLORATIONS -->
     <section id="explorations" class="relative py-32 px-6 overflow-hidden">
       <div class="max-w-[1400px] mx-auto relative z-10">
-        <div class="text-center mb-20">
-          <div class="flex items-center gap-4 justify-center mb-6">
-            <div class="w-12 h-px bg-white/20"></div>
-            <p class="text-xs text-accent uppercase tracking-[0.5em]">05 — Explorations</p>
-            <div class="w-12 h-px bg-white/20"></div>
-          </div>
-          <h2 class="text-5xl md:text-7xl font-display italic mb-6 exploration-title opacity-0 translate-y-20">Visual <span class="gradient-text">Playground</span></h2>
-          <p class="text-white/60 max-w-xl mx-auto mb-8 exploration-text opacity-0">Experimental works where pixels meet purpose</p>
-        </div>
+        <div class="text-center mb-20"><div class="flex items-center gap-4 justify-center mb-6"><div class="w-12 h-px bg-white/20"></div><p class="text-xs text-accent uppercase tracking-[0.5em]">05 — Explorations</p><div class="w-12 h-px bg-white/20"></div></div><h2 class="text-5xl md:text-7xl font-display italic mb-6 exploration-title opacity-0 translate-y-20">Visual <span class="gradient-text">Playground</span></h2><p class="text-white/60 max-w-xl mx-auto mb-8 exploration-text opacity-0">Experimental works where pixels meet purpose</p></div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8" id="exploration-grid">
           <div class="exp-img-item cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openLightbox('https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200')"><div class="aspect-square rounded-2xl overflow-hidden glass-card"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div></div>
           <div class="exp-img-item cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openLightbox('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800')"><div class="aspect-square rounded-2xl overflow-hidden glass-card"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div></div>
@@ -416,21 +259,12 @@
           <div class="exp-img-item cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openLightbox('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200')"><div class="aspect-square rounded-2xl overflow-hidden glass-card"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div></div>
           <div class="exp-img-item cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openLightbox('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600')"><div class="aspect-square rounded-2xl overflow-hidden glass-card"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div></div>
         </div>
-        <div class="text-center mt-16 scroll-reveal">
-          <button onclick="window.open('https://www.instagram.com/pixelegg.digital/', '_blank')" class="magnetic-btn group relative rounded-full text-sm px-10 py-5 border-2 border-white/30 text-white hover:border-white transition-all duration-500 hover:scale-110 backdrop-blur-xl"><span class="relative flex items-center gap-2">Follow on Instagram <span class="text-xl">↗</span></span></button>
-        </div>
+        <div class="text-center mt-16 scroll-reveal"><button onclick="window.open('https://www.instagram.com/pixelegg.digital/', '_blank')" class="magnetic-btn group relative rounded-full text-sm px-10 py-5 border-2 border-white/30 text-white hover:border-white transition-all duration-500 hover:scale-110 backdrop-blur-xl"><span class="relative flex items-center gap-2">Follow on Instagram <span class="text-xl">↗</span></span></button></div>
       </div>
     </section>
-
-    <!-- CONTACT -->
     <section id="contact" class="relative py-32 px-6 overflow-hidden">
       <div class="max-w-[1200px] mx-auto text-center">
-        <div class="mb-16">
-          <div class="w-24 h-px accent-gradient mx-auto mb-8"></div>
-          <h2 class="text-6xl md:text-8xl lg:text-9xl font-display italic mb-8 contact-title opacity-0 translate-y-20">Let's work <span class="gradient-text">together</span></h2>
-          <p class="text-white/60 max-w-2xl mx-auto mb-12 contact-text opacity-0">Ready to bring your vision to life? Let's create something extraordinary.</p>
-          <a href="mailto:contact@pixelegg.digital" class="magnetic-btn group relative inline-flex rounded-full text-xl px-12 py-6 bg-white text-black hover:bg-transparent hover:text-white transition-all duration-500 hover:scale-110 border-2 border-white contact-btn opacity-0 translate-y-20"><span class="relative flex items-center gap-3">contact@pixelegg.digital <span class="text-2xl">↗</span></span></a>
-        </div>
+        <div class="mb-16"><div class="w-24 h-px accent-gradient mx-auto mb-8"></div><h2 class="text-6xl md:text-8xl lg:text-9xl font-display italic mb-8 contact-title opacity-0 translate-y-20">Let's work <span class="gradient-text">together</span></h2><p class="text-white/60 max-w-2xl mx-auto mb-12 contact-text opacity-0">Ready to bring your vision to life? Let's create something extraordinary.</p><a href="mailto:contact@pixelegg.digital" class="magnetic-btn group relative inline-flex rounded-full text-xl px-12 py-6 bg-white text-black hover:bg-transparent hover:text-white transition-all duration-500 hover:scale-110 border-2 border-white contact-btn opacity-0 translate-y-20"><span class="relative flex items-center gap-3">contact@pixelegg.digital <span class="text-2xl">↗</span></span></a></div>
         <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-12 border-t border-white/10">
           <div class="flex items-center gap-8">
             <a href="https://www.instagram.com/pixelegg.digital/" target="_blank" class="text-sm text-white/40 hover:text-accent transition-all duration-300 hover:translate-y-[-2px] inline-block">Instagram</a>
@@ -438,207 +272,16 @@
             <a href="https://github.com/omarbouzganda" target="_blank" class="text-sm text-white/40 hover:text-accent transition-all duration-300 hover:translate-y-[-2px] inline-block">GitHub</a>
             <a href="https://www.linkedin.com/company/pixel-egg/" target="_blank" class="text-sm text-white/40 hover:text-accent transition-all duration-300 hover:translate-y-[-2px] inline-block">LinkedIn</a>
           </div>
-          <div class="flex items-center gap-2 text-sm text-white/40">
-            <span class="relative flex h-2 w-2"><span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
-            Available for projects
-          </div>
+          <div class="flex items-center gap-2 text-sm text-white/40"><span class="relative flex h-2 w-2"><span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Available for projects</div>
         </div>
-        <div class="text-center mt-8 text-xs text-white/30">© 2026 Pixel Egg — Every pixel serves a purpose. 🥚</div>
+        <div class="text-center mt-8 text-xs text-white/30">© 2026 Pixel Egg — made by omar bouzganda. 🥚</div>
       </div>
     </section>
-
   </div>
-
-  <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-[9998] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 cursor-pointer opacity-0 pointer-events-none transition-all duration-500" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-2xl scale-90 transition-transform duration-500" />
     <button class="absolute top-6 right-6 text-4xl text-white/70 hover:text-white transition-colors z-10 w-12 h-12 rounded-full glass-card flex items-center justify-center" onclick="closeLightbox()">✕</button>
   </div>
-
-  <!-- ===== 3D CLOUDS MODULE ===== -->
-  <script type="module">
-    import * as THREE from 'three';
-    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
-    if (window.innerWidth < 768) {
-      document.getElementById('cloud-bg-canvas').style.display = 'none';
-      document.getElementById('cloud-fg-canvas').style.display = 'none';
-    } else {
-
-      // ── Procedural fallback cloud ──
-      function createProceduralCloud() {
-        const g = new THREE.Group();
-        const geo = new THREE.SphereGeometry(1, 20, 14);
-        const mat = new THREE.MeshStandardMaterial({ color: 0x89aacc, transparent: true, opacity: 0.6, emissive: 0x1a3a5c, emissiveIntensity: 0.3, roughness: 0.85, metalness: 0.05 });
-        [[0,0,0,1.3],[-0.9,0.25,0.3,0.95],[0.95,0.15,-0.25,0.9],[-0.35,0.65,0.15,0.78],[0.45,0.55,-0.35,0.72],[1.4,0.45,0.2,0.65],[-1.3,0.35,-0.15,0.68],[0.1,0.8,0,0.6]].forEach(([x,y,z,s])=>{
-          const m = new THREE.Mesh(geo, mat);
-          m.position.set(x,y,z); m.scale.setScalar(s); g.add(m);
-        });
-        return g;
-      }
-
-      // ── Blue tint any mesh ──
-      function tintCloud(obj, opacity) {
-        obj.traverse(c => {
-          if (c.isMesh) {
-            c.material = c.material.clone();
-            c.material.transparent = true;
-            c.material.opacity = opacity;
-            if (c.material.color) c.material.color.set(0x89aacc);
-            c.material.emissive = new THREE.Color(0x1a3a5c);
-            c.material.emissiveIntensity = 0.3;
-            c.material.roughness = 0.85;
-            c.material.metalness = 0.05;
-          }
-        });
-      }
-
-      // ── Load model with fallback ──
-      function loadCloud(callback) {
-        const loader = new GLTFLoader();
-        let modelPath;
-        try { modelPath = new URL('./blue_cloud_icon.glb', window.location.href).href; }
-        catch(e) { modelPath = 'blue_cloud_icon.glb'; }
-
-        loader.load(modelPath, gltf => { tintCloud(gltf.scene, 0.6); callback(gltf.scene); }, undefined, () => { callback(createProceduralCloud()); });
-      }
-
-      let scrollY = 0;
-      window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
-
-      // ═══════════════════════════════════════════
-      // BACKGROUND CLOUDS (2 small, behind content)
-      // ═══════════════════════════════════════════
-      const bgCanvas = document.getElementById('cloud-bg-canvas');
-      const bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true });
-      bgRenderer.setSize(window.innerWidth, window.innerHeight);
-      bgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      bgRenderer.toneMapping = THREE.ACESFilmicToneMapping;
-      bgRenderer.toneMappingExposure = 0.6;
-
-      const bgScene = new THREE.Scene();
-      const bgCamera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
-      bgCamera.position.set(0, 0, 22);
-
-      bgScene.add(new THREE.AmbientLight(0x89aacc, 0.4));
-      const bgDir = new THREE.DirectionalLight(0x4e85bf, 0.5);
-      bgDir.position.set(5, 8, 10);
-      bgScene.add(bgDir);
-
-      const bgClouds = [];
-      const bgConfigs = [
-        { pos: [-9, 4, -10], scale: 1.0, speed: 0.12, phase: 0 },
-        { pos: [8, -2, -8], scale: 0.8, speed: 0.16, phase: 2.5 },
-      ];
-
-      bgConfigs.forEach((cfg, i) => {
-        loadCloud(cloud => {
-          cloud.position.set(cfg.pos[0], cfg.pos[1], cfg.pos[2]);
-          cloud.scale.setScalar(cfg.scale);
-          tintCloud(cloud, 0.12 + i * 0.05);
-          cloud.userData = cfg;
-          bgScene.add(cloud);
-          bgClouds.push(cloud);
-        });
-      });
-
-      // ═══════════════════════════════════════════
-      // FOREGROUND CLOUD (1, passes in front of all)
-      // ═══════════════════════════════════════════
-      const fgCanvas = document.getElementById('cloud-fg-canvas');
-      const fgRenderer = new THREE.WebGLRenderer({ canvas: fgCanvas, alpha: true, antialias: true });
-      fgRenderer.setSize(window.innerWidth, window.innerHeight);
-      fgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      fgRenderer.toneMapping = THREE.ACESFilmicToneMapping;
-      fgRenderer.toneMappingExposure = 0.7;
-
-      const fgScene = new THREE.Scene();
-      const fgCamera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 200);
-      fgCamera.position.set(0, 0, 14);
-
-      fgScene.add(new THREE.AmbientLight(0x89aacc, 0.5));
-      const fgDir = new THREE.DirectionalLight(0x6ba3d6, 0.7);
-      fgDir.position.set(-3, 5, 8);
-      fgScene.add(fgDir);
-      const fgPoint = new THREE.PointLight(0x89aacc, 0.5, 40);
-      fgPoint.position.set(5, 2, 6);
-      fgScene.add(fgPoint);
-
-      const fgClouds = [];
-      loadCloud(cloud => {
-        cloud.position.set(18, 1, 0);
-        cloud.scale.setScalar(2.8);
-        tintCloud(cloud, 0.3);
-        cloud.userData = { baseX: 18, baseY: 1, speed: 0.1, phase: 0 };
-        fgScene.add(cloud);
-        fgClouds.push(cloud);
-      });
-
-      // ── Unified render loop ──
-      function animate() {
-        requestAnimationFrame(animate);
-        const t = performance.now() * 0.001;
-        const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
-        const sp = scrollY / maxScroll;
-
-        // BG clouds — gentle, subtle
-        bgClouds.forEach((c, i) => {
-          const d = c.userData;
-          const ix = Math.sin(t * d.speed + d.phase) * 0.4;
-          const iy = Math.cos(t * d.speed * 0.6 + d.phase) * 0.25;
-          const sx = Math.sin(sp * Math.PI * 1.5 + d.phase) * 2.5;
-          const sy = Math.cos(sp * Math.PI + d.phase) * 1.2;
-          const ry = t * d.speed * 0.2 + sp * Math.PI * 0.4 * (i % 2 === 0 ? 1 : -1);
-          c.position.x = d.pos[0] + ix + sx;
-          c.position.y = d.pos[1] + iy + sy;
-          c.rotation.y = ry;
-          c.rotation.x = Math.sin(sp * Math.PI * 2 + d.phase) * 0.15;
-        });
-        bgRenderer.render(bgScene, bgCamera);
-
-        // FG cloud — dramatic pass across screen
-        fgClouds.forEach(c => {
-          const d = c.userData;
-          const ix = Math.sin(t * d.speed) * 0.5;
-          const iy = Math.cos(t * d.speed * 0.5) * 0.3;
-
-          // Drift from right (+18) to left (-18) as you scroll
-          const sx = d.baseX - sp * 36;
-          const sy = Math.sin(sp * Math.PI * 2) * 2;
-          const ry = sp * Math.PI * 1.2;
-          const rx = Math.sin(sp * Math.PI * 3) * 0.4;
-          const rz = Math.cos(sp * Math.PI * 1.5) * 0.2;
-          const sc = 2.8 + Math.sin(sp * Math.PI) * 0.6;
-
-          c.position.x = sx + ix;
-          c.position.y = d.baseY + iy + sy;
-          c.rotation.set(rx, ry, rz);
-          c.scale.setScalar(sc);
-        });
-        fgPoint.position.x = 5 + Math.sin(t * 0.3) * 3;
-        fgRenderer.render(fgScene, fgCamera);
-      }
-      animate();
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth < 768) {
-          bgCanvas.style.display = 'none';
-          fgCanvas.style.display = 'none';
-          return;
-        }
-        bgCanvas.style.display = '';
-        fgCanvas.style.display = '';
-        [bgCamera, fgCamera].forEach(cam => {
-          cam.aspect = window.innerWidth / window.innerHeight;
-          cam.updateProjectionMatrix();
-        });
-        bgRenderer.setSize(window.innerWidth, window.innerHeight);
-        fgRenderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    }
-  </script>
-
-  <!-- ===== MAIN SCRIPT ===== -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
@@ -648,76 +291,34 @@
       if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) e.preventDefault();
       if (e.metaKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) e.preventDefault();
     });
-
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     const isMobile = window.innerWidth < 768;
-
     let lenis;
-    if (!isMobile) {
-      lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    }
-
+    if (!isMobile) { lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true }); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add((time) => lenis.raf(time * 1000)); gsap.ticker.lagSmoothing(0); }
     const cursor = document.getElementById('cursor');
     if (cursor && !isMobile) {
       let cX = 0, cY = 0, mX = 0, mY = 0;
       document.addEventListener('mousemove', (e) => { mX = e.clientX; mY = e.clientY; });
       (function l() { cX += (mX - cX) * 0.15; cY += (mY - cY) * 0.15; cursor.style.transform = `translate(${cX - 15}px, ${cY - 15}px)`; requestAnimationFrame(l); })();
-      setTimeout(() => {
-        document.querySelectorAll('button, a, .scroll-reveal, .flip-card, .gallery-card, .team-card').forEach(el => {
-          el.addEventListener('mouseenter', () => { cursor.style.width = '50px'; cursor.style.height = '50px'; cursor.style.borderColor = 'rgba(137,170,204,1)'; cursor.style.backgroundColor = 'rgba(137,170,204,0.1)'; });
-          el.addEventListener('mouseleave', () => { cursor.style.width = '30px'; cursor.style.height = '30px'; cursor.style.borderColor = 'rgba(137,170,204,0.8)'; cursor.style.backgroundColor = 'transparent'; });
-        });
-      }, 3500);
+      setTimeout(() => { document.querySelectorAll('button, a, .scroll-reveal, .flip-card, .gallery-card, .team-card').forEach(el => { el.addEventListener('mouseenter', () => { cursor.style.width = '50px'; cursor.style.height = '50px'; cursor.style.borderColor = 'rgba(137,170,204,1)'; cursor.style.backgroundColor = 'rgba(137,170,204,0.1)'; }); el.addEventListener('mouseleave', () => { cursor.style.width = '30px'; cursor.style.height = '30px'; cursor.style.borderColor = 'rgba(137,170,204,0.8)'; cursor.style.backgroundColor = 'transparent'; }); }); }, 3500);
     }
-
     (function() {
       const lw = document.getElementById('loading-word'), lc = document.getElementById('loading-counter'), lb = document.getElementById('loading-bar'), ls = document.getElementById('loading-screen'), mc = document.getElementById('main-content');
       const words = ['Pixel', 'Egg', 'Create', 'Inspire', 'Design', 'Develop']; let wi = 0;
-      const wInt = setInterval(() => {
-        wi = (wi + 1) % words.length;
-        gsap.to(lw, { opacity: 0, y: -20, duration: 0.3, onComplete: () => { lw.textContent = words[wi]; gsap.fromTo(lw, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }); }});
-      }, 800);
+      const wInt = setInterval(() => { wi = (wi + 1) % words.length; gsap.to(lw, { opacity: 0, y: -20, duration: 0.3, onComplete: () => { lw.textContent = words[wi]; gsap.fromTo(lw, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }); }}); }, 800);
       const dur = 2700, st = Date.now();
-      (function a() {
-        const p = Math.min((Date.now() - st) / dur, 1);
-        lc.textContent = String(Math.floor(p * 100)).padStart(3, '0');
-        lb.style.transform = `scaleX(${p})`;
-        if (p < 1) requestAnimationFrame(a);
-        else {
-          clearInterval(wInt);
-          setTimeout(() => {
-            gsap.to(ls, { yPercent: -100, duration: 0.8, ease: 'power4.inOut', onComplete: () => { ls.style.display = 'none'; mc.style.opacity = '1'; if (!isMobile) ScrollTrigger.refresh(); initAnimations(); }});
-            gsap.to(lw, { scale: 1.5, opacity: 0, duration: 0.4 });
-            gsap.to(lc, { y: -50, opacity: 0, duration: 0.3 });
-          }, 300);
-        }
-      })();
+      (function a() { const p = Math.min((Date.now() - st) / dur, 1); lc.textContent = String(Math.floor(p * 100)).padStart(3, '0'); lb.style.transform = `scaleX(${p})`; if (p < 1) requestAnimationFrame(a); else { clearInterval(wInt); setTimeout(() => { gsap.to(ls, { yPercent: -100, duration: 0.8, ease: 'power4.inOut', onComplete: () => { ls.style.display = 'none'; mc.style.opacity = '1'; if (!isMobile) ScrollTrigger.refresh(); initAnimations(); }}); gsap.to(lw, { scale: 1.5, opacity: 0, duration: 0.4 }); gsap.to(lc, { y: -50, opacity: 0, duration: 0.3 }); }, 300); } }); }
     })();
-
-    if (!isMobile) {
-      const roles = ['Creative', 'Strategic', 'Bold', 'Precision']; let ri = 0;
-      const re = document.getElementById('role-rotator');
-      if (re) setInterval(() => { ri = (ri + 1) % roles.length; gsap.to(re, { y: -20, opacity: 0, duration: 0.2, onComplete: () => { re.textContent = roles[ri]; gsap.fromTo(re, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }); }}); }, 2000);
-    }
-
+    if (!isMobile) { const roles = ['Creative', 'Strategic', 'Bold', 'Precision']; let ri = 0; const re = document.getElementById('role-rotator'); if (re) setInterval(() => { ri = (ri + 1) % roles.length; gsap.to(re, { y: -20, opacity: 0, duration: 0.2, onComplete: () => { re.textContent = roles[ri]; gsap.fromTo(re, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }); }}); }, 2000); }
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.5 }); else el.scrollIntoView({ behavior: 'smooth' }); } }
     document.querySelectorAll('.nav-btn, .contact-nav-btn, .portfolio-scroll-btn, .contact-scroll-btn').forEach(btn => { btn.addEventListener('click', () => { const s = btn.dataset.section || (btn.classList.contains('portfolio-scroll-btn') ? 'portfolio' : 'contact'); scrollToSection(s); }); });
-
-    if (!isMobile) {
-      const ro = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) { en.target.classList.add('revealed'); ro.unobserve(en.target); } }); }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-      document.querySelectorAll('.scroll-reveal').forEach(el => ro.observe(el));
-    }
-
+    if (!isMobile) { const ro = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) { en.target.classList.add('revealed'); ro.unobserve(en.target); } }); }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }); document.querySelectorAll('.scroll-reveal').forEach(el => ro.observe(el)); }
     function initAnimations() {
       gsap.to('.hero-letter', { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, delay: 0.3 });
       gsap.to('.hero-letter2', { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, delay: 0.8 });
       gsap.to('.hero-subtitle, .hero-tagline, .hero-buttons', { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, delay: 1.2 });
       gsap.to('.hero-scroll-indicator', { opacity: 1, duration: 0.8, delay: 2 });
       if (isMobile) return;
-
       gsap.to('#progress-bar', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#main-content', start: 'top top', end: 'bottom bottom', scrub: 0.3 } });
       gsap.to('.services-label', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#services', start: 'top 80%' } });
       gsap.to('.services-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#services', start: 'top 75%' } });
@@ -726,13 +327,17 @@
       gsap.to('.portfolio-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#portfolio', start: 'top 75%' } });
       gsap.to('.portfolio-line', { scaleX: 1, duration: 0.8, scrollTrigger: { trigger: '#portfolio', start: 'top 70%' } });
       gsap.to('.portfolio-filters', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#portfolio', start: 'top 65%' } });
-
       const gt = document.getElementById('gallery-track'), gc = document.getElementById('gallery-container'), pg = document.getElementById('portfolio-gallery');
-      if (gt && gc && pg) { const gd = () => gt.scrollWidth - window.innerWidth + 100; ScrollTrigger.create({ trigger: pg, start: 'top top', end: () => `+=${gd()}`, pin: gc, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: (s) => { gsap.set(gt, { x: -gd() * s.progress }); } }); }
-
+      if (gt && gc && pg) {
+        gt.style.left = '0px';
+        function calcStartOffset() { return Math.max(0, (window.innerWidth - window.innerWidth * 0.7) / 2 - 24); }
+        let galleryStart = calcStartOffset();
+        gsap.set(gt, { x: galleryStart });
+        const gd = () => gt.scrollWidth - window.innerWidth + galleryStart + 50;
+        ScrollTrigger.create({ trigger: pg, start: 'top top', end: () => `+=${gd()}`, pin: gc, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: (s) => { gsap.set(gt, { x: galleryStart - gd() * s.progress }); } });
+      }
       gsap.fromTo('.kinetic-line', { x: '70%' }, { x: '-70%', ease: 'none', scrollTrigger: { trigger: '.kinetic-section', start: 'top 95%', end: 'bottom 5%', scrub: 1 } });
       gsap.fromTo('.kinetic-line-reverse', { x: '-70%' }, { x: '70%', ease: 'none', scrollTrigger: { trigger: '.kinetic-section', start: 'top 95%', end: 'bottom 5%', scrub: 1 } });
-
       gsap.to('.about-label', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#about', start: 'top 80%' } });
       gsap.to('.about-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#about', start: 'top 75%' } });
       gsap.to('.about-line', { scaleX: 1, duration: 0.8, scrollTrigger: { trigger: '#about', start: 'top 70%' } });
@@ -740,84 +345,36 @@
       gsap.to('.about-img-container', { x: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#about', start: 'top 60%' } });
       gsap.to('.process-title', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '.process-step', start: 'top 80%' } });
       gsap.to('.process-step', { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, scrollTrigger: { trigger: '.process-step', start: 'top 75%' } });
-
       gsap.to('.team-label', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#team', start: 'top 82%' } });
       gsap.to('.team-title', { opacity: 1, duration: 1, scrollTrigger: { trigger: '#team', start: 'top 78%' } });
       gsap.to('.team-subtitle', { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '#team', start: 'top 74%' } });
       gsap.to('.team-line', { scaleX: 1, duration: 0.8, scrollTrigger: { trigger: '#team', start: 'top 72%' } });
       gsap.to('.team-deco-number', { opacity: 1, scale: 1.08, duration: 1.5, ease: 'power2.out', scrollTrigger: { trigger: '.team-grid', start: 'top 90%', end: 'top 30%', scrub: 1 } });
-
       const teamCards = document.querySelectorAll('.team-card');
-      const entrances = [
-        { x: -120, y: 60, rotateY: -8, rotateX: 5, scale: 0.85 },
-        { x: 120, y: 60, rotateY: 8, rotateX: 5, scale: 0.85 },
-        { y: 100, rotateX: 12, scale: 0.8 },
-        { y: 120, rotateX: -10, rotateZ: 3, scale: 0.78 },
-        { y: 100, rotateX: 10, rotateZ: -3, scale: 0.8 },
-      ];
+      const entrances = [{x:-120,y:60,rotateY:-8,rotateX:5,scale:0.85},{x:120,y:60,rotateY:8,rotateX:5,scale:0.85},{y:100,rotateX:12,scale:0.8},{y:120,rotateX:-10,rotateZ:3,scale:0.78},{y:100,rotateX:10,rotateZ:-3,scale:0.8}];
       const masterTL = gsap.timeline({ scrollTrigger: { trigger: '.team-grid', start: 'top 70%' } });
-      teamCards.forEach((card, i) => {
-        const from = entrances[i]; const childTL = gsap.timeline();
-        childTL.fromTo(card, { ...from, opacity: 0, transformOrigin: i < 2 ? 'center center' : 'bottom center' }, { x: 0, y: 0, rotate: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out' });
-        childTL.fromTo(card.querySelector('.team-card-initial'), { scale: 0, rotation: -45, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.1, ease: 'back.out(1.8)' }, '-=0.7');
-        card.querySelectorAll('.team-card-corner, .team-card-corner-br').forEach(c => { childTL.fromTo(c, { scaleX: 0, scaleY: 0, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.6'); });
-        childTL.fromTo(card.querySelector('.team-card-num'), { y: -12, opacity: 0, letterSpacing: '0.4em' }, { y: 0, opacity: 1, letterSpacing: '0.2em', duration: 0.5 }, '-=0.35');
-        childTL.fromTo(card.querySelector('.team-card-role'), { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, '-=0.3');
-        childTL.fromTo(card.querySelector('.team-card-name'), { y: 25, opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { y: 0, opacity: 1, clipPath: 'inset(0 0 0% 0)', duration: 0.7, ease: 'power3.out' }, '-=0.25');
-        childTL.fromTo(card.querySelector('.team-card-line-el'), { width: 0 }, { width: '80px', duration: 0.7, ease: 'power2.inOut' }, '-=0.3');
-        childTL.call(() => card.classList.add('active'), null, '-=0.1');
-        childTL.fromTo(card.querySelector('.team-card-desc'), { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, '-=0.25');
-        card.querySelectorAll('.team-card-tags span').forEach(tag => { childTL.fromTo(tag, { y: 8, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(2.5)' }, '-=0.18'); });
-        masterTL.add(childTL, i * 0.3);
+      teamCards.forEach((card, i) => { const from = entrances[i]; const tl = gsap.timeline(); tl.fromTo(card, {...from,opacity:0,transformOrigin:i<2?'center center':'bottom center'},{x:0,y:0,rotate:0,rotateX:0,rotateY:0,rotateZ:0,scale:1,opacity:1,duration:1.2,ease:'power3.out'}); tl.fromTo(card.querySelector('.team-card-initial'),{scale:0,rotation:-45,opacity:0},{scale:1,rotation:0,opacity:1,duration:1.1,ease:'back.out(1.8)'},'-=0.7'); card.querySelectorAll('.team-card-corner,.team-card-corner-br').forEach(c=>{tl.fromTo(c,{scaleX:0,scaleY:0,opacity:0},{scaleX:1,scaleY:1,opacity:1,duration:0.5,ease:'power2.out'},'-=0.6');}); tl.fromTo(card.querySelector('.team-card-num'),{y:-12,opacity:0,letterSpacing:'0.4em'},{y:0,opacity:1,letterSpacing:'0.2em',duration:0.5},'-=0.35'); tl.fromTo(card.querySelector('.team-card-role'),{y:12,opacity:0},{y:0,opacity:1,duration:0.4},'-=0.3'); tl.fromTo(card.querySelector('.team-card-name'),{y:25,opacity:0,clipPath:'inset(0 0 100% 0)'},{y:0,opacity:1,clipPath:'inset(0 0 0% 0)',duration:0.7,ease:'power3.out'},'-=0.25'); tl.fromTo(card.querySelector('.team-card-line-el'),{width:0},{width:'80px',duration:0.7,ease:'power2.inOut'},'-=0.3'); tl.call(()=>card.classList.add('active'),null,'-=0.1'); tl.fromTo(card.querySelector('.team-card-desc'),{y:12,opacity:0},{y:0,opacity:1,duration:0.4},'-=0.25'); card.querySelectorAll('.team-card-tags span').forEach(tag=>{tl.fromTo(tag,{y:8,opacity:0,scale:0.7},{y:0,opacity:1,scale:1,duration:0.35,ease:'back.out(2.5)'},'-=0.18');}); masterTL.add(tl,i*0.3); });
+      gsap.utils.toArray('.team-card-initial').forEach((init,i)=>{gsap.to(init,{y:-30+(i*12),x:(i%2===0?-15:15),ease:'none',scrollTrigger:{trigger:'.team-grid',start:'top 80%',end:'bottom 20%',scrub:2}});});
+      gsap.fromTo('.team-bottom-tag',{opacity:0,y:50},{opacity:1,y:0,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.team-bottom-tag',start:'top 88%'}});
+      teamCards.forEach(card=>{
+        card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;gsap.to(card,{rotateY:x*8,rotateX:-y*8,y:-6,scale:1.02,duration:0.4,ease:'power2.out',transformPerspective:800});});
+        card.addEventListener('mouseleave',()=>{gsap.to(card,{rotateY:0,rotateX:0,y:0,scale:1,duration:0.7,ease:'elastic.out(1,0.4)'});});
       });
-
-      gsap.utils.toArray('.team-card-initial').forEach((init, i) => { gsap.to(init, { y: -30 + (i * 12), x: (i % 2 === 0 ? -15 : 15), ease: 'none', scrollTrigger: { trigger: '.team-grid', start: 'top 80%', end: 'bottom 20%', scrub: 2 } }); });
-      gsap.fromTo('.team-bottom-tag', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.team-bottom-tag', start: 'top 88%' } });
-
-      teamCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => { const r = card.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - 0.5; const y = (e.clientY - r.top) / r.height - 0.5; gsap.to(card, { rotateY: x * 8, rotateX: -y * 8, duration: 0.4, ease: 'power2.out', transformPerspective: 800 }); });
-        card.addEventListener('mouseleave', () => { gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' }); });
-      });
-
-      gsap.to('.exploration-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#explorations', start: 'top 75%' } });
-      gsap.to('.exploration-text', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#explorations', start: 'top 70%' } });
-      const expItems = gsap.utils.toArray('.exp-img-item');
-      expItems.forEach((el, i) => {
-        const col = i % 3, row = Math.floor(i / 3); const xOffset = (col - 1) * 60, yOffset = (row === 0 ? -1 : 1) * 50;
-        gsap.fromTo(el, { y: yOffset + 40, x: xOffset, opacity: 0, scale: 0.88, rotateY: (col - 1) * 6 }, { y: 0, x: 0, opacity: 1, scale: 1, rotateY: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', end: 'top 50%', scrub: 1 } });
-        gsap.to(el, { y: (i % 2 === 0 ? -25 : 25), ease: 'none', scrollTrigger: { trigger: '#exploration-grid', start: 'top bottom', end: 'bottom top', scrub: 2 } });
-      });
-
-      gsap.to('.contact-title', { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: '#contact', start: 'top 75%' } });
-      gsap.to('.contact-text', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#contact', start: 'top 70%' } });
-      gsap.to('.contact-btn', { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: '#contact', start: 'top 65%' } });
-
-      ScrollTrigger.create({ trigger: '.about-text', start: 'top 80%', once: true, onEnter: () => {
-        document.querySelectorAll('.counter-number').forEach(el => { const t = parseInt(el.dataset.target), s = el.dataset.suffix || ''; let c = 0; const step = Math.max(1, Math.ceil(t / 60)); const iv = setInterval(() => { c += step; if (c >= t) { el.textContent = t + s; clearInterval(iv); } else el.textContent = c + s; }, 30); });
-      }});
-
-      document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.portfolio-filter-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');
-          const f = this.dataset.filter;
-          document.querySelectorAll('.gallery-card').forEach((item, i) => { const show = f === 'all' || item.dataset.category === f; gsap.to(item, { opacity: show ? 1 : 0.3, scale: show ? 1 : 0.95, duration: 0.5, delay: i * 0.05 }); });
-        });
-      });
-
-      const secs = ['home', 'services', 'portfolio', 'about', 'team', 'contact'];
-      ScrollTrigger.create({ trigger: '#main-content', start: 'top top', end: 'bottom bottom', onUpdate: () => {
-        let cur = 'home';
-        for (let i = secs.length - 1; i >= 0; i--) { const el = document.getElementById(secs[i]); if (el && el.getBoundingClientRect().top <= 200) { cur = secs[i]; break; } }
-        document.querySelectorAll('.nav-btn').forEach(btn => { if (btn.dataset.section === cur) { btn.classList.add('active-nav'); btn.classList.remove('text-white/70'); } else { btn.classList.remove('active-nav'); btn.classList.add('text-white/70'); } });
-      }});
-
-      setTimeout(() => ScrollTrigger.refresh(), 100);
+      gsap.to('.exploration-title',{y:0,opacity:1,duration:1,scrollTrigger:{trigger:'#explorations',start:'top 75%'}});
+      gsap.to('.exploration-text',{opacity:1,duration:0.8,scrollTrigger:{trigger:'#explorations',start:'top 70%'}});
+      const expItems=gsap.utils.toArray('.exp-img-item');expItems.forEach((el,i)=>{const col=i%3,row=Math.floor(i/3);const xO=(col-1)*60,yO=(row===0?-1:1)*50;gsap.fromTo(el,{y:yO+40,x:xO,opacity:0,scale:0.88,rotateY:(col-1)*6},{y:0,x:0,opacity:1,scale:1,rotateY:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',end:'top 50%',scrub:1}});gsap.to(el,{y:(i%2===0?-25:25),ease:'none',scrollTrigger:{trigger:'#exploration-grid',start:'top bottom',end:'bottom top',scrub:2}});});
+      gsap.to('.contact-title',{y:0,opacity:1,duration:1,scrollTrigger:{trigger:'#contact',start:'top 75%'}});
+      gsap.to('.contact-text',{opacity:1,duration:0.8,scrollTrigger:{trigger:'#contact',start:'top 70%'}});
+      gsap.to('.contact-btn',{y:0,opacity:1,duration:0.8,scrollTrigger:{trigger:'#contact',start:'top 65%'}});
+      ScrollTrigger.create({trigger:'.about-text',start:'top 80%',once:true,onEnter:()=>{document.querySelectorAll('.counter-number').forEach(el=>{const t=parseInt(el.dataset.target),s=el.dataset.suffix||'';let c=0;const step=Math.max(1,Math.ceil(t/60));const iv=setInterval(()=>{c+=step;if(c>=t){el.textContent=t+s;clearInterval(iv);}else el.textContent=c+s;},30);});}});
+      document.querySelectorAll('.portfolio-filter-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.portfolio-filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');const f=this.dataset.filter;document.querySelectorAll('.gallery-card').forEach((item,i)=>{const show=f==='all'||item.dataset.category===f;gsap.to(item,{opacity:show?1:0.3,scale:show?1:0.95,duration:0.5,delay:i*0.05});});});});
+      const secs=['home','services','portfolio','about','team','contact'];ScrollTrigger.create({trigger:'#main-content',start:'top top',end:'bottom bottom',onUpdate:()=>{let cur='home';for(let i=secs.length-1;i>=0;i--){const el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=200){cur=secs[i];break;}}document.querySelectorAll('.nav-btn').forEach(btn=>{if(btn.dataset.section===cur){btn.classList.add('active-nav');btn.classList.remove('text-white/70');}else{btn.classList.remove('active-nav');btn.classList.add('text-white/70');}});});}});
+      setTimeout(()=>ScrollTrigger.refresh(),100);
     }
-
-    function openLightbox(src) { const lb = document.getElementById('lightbox'), li = document.getElementById('lightbox-img'); li.src = src; lb.classList.remove('opacity-0', 'pointer-events-none'); lb.classList.add('opacity-100', 'pointer-events-auto'); gsap.fromTo(li, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5 }); }
-    function closeLightbox() { const lb = document.getElementById('lightbox'); gsap.to(lb, { opacity: 0, duration: 0.3, onComplete: () => { lb.classList.add('opacity-0', 'pointer-events-none'); lb.classList.remove('opacity-100', 'pointer-events-auto'); }}); }
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if (!isMobile) ScrollTrigger.refresh(); }, 250); });
+    function openLightbox(src){const lb=document.getElementById('lightbox'),li=document.getElementById('lightbox-img');li.src=src;lb.classList.remove('opacity-0','pointer-events-none');lb.classList.add('opacity-100','pointer-events-auto');gsap.fromTo(li,{scale:0.8,opacity:0},{scale:1,opacity:1,duration:0.5});}
+    function closeLightbox(){const lb=document.getElementById('lightbox');gsap.to(lb,{opacity:0,duration:0.3,onComplete:()=>{lb.classList.add('opacity-0','pointer-events-none');lb.classList.remove('opacity-100','pointer-events-auto');}});}
+    document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeLightbox();});
+    let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!isMobile){const gt=document.getElementById('gallery-track');if(gt){gt.style.left='0px';const nO=Math.max(0,(window.innerWidth-window.innerWidth*0.7)/2-24);gsap.set(gt,{x:nO});ScrollTrigger.refresh();}},250);}});
   </script>
 </body>
 </html>
